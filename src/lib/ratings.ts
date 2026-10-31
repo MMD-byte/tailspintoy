@@ -13,6 +13,11 @@ export function clampRating(rating: number): number {
     return Math.min(5, Math.max(0, rating));
 }
 
+/** Formats a nullable rating for display on a five-star scale. */
+export function formatRatingOutOfFive(rating: number | null): string {
+    return rating === null ? 'No rating yet' : `${clampRating(rating).toFixed(1)} / 5`;
+}
+
 /**
  * Builds a star glyph string for a rating between 0 and 5.
  *
